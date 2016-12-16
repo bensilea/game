@@ -8,13 +8,17 @@ public class Grid {
 	public int num;
 	public int beixuan[];
 	public int zhen;
-	Grid(){
+	public int row;
+	public int line;
+	Grid(){//初始化
 		beixuan=new int [9];
 		for(int i=0;i<9;i++){
 			beixuan[i]=i+1;
 		}
 		this.zhen=-1;
 		this.num=0;
+		this.row=0;
+		this.line=0;
 	}
 	
 	public int getNum(){
