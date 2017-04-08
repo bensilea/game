@@ -35,7 +35,7 @@ import java.util.Stack;
 007000300
 */
 
-public class sudoku {
+public class Sudoku {
 	
 	public static String questionPath="src/game1/sudoku4.txt";
 //	public static String questionPath="C:\\Users\\songduo\\Desktop\\sudoku3.txt";
@@ -51,10 +51,10 @@ public class sudoku {
 			System.out.println();
 		}
 	}
-	public void initZhen(Grid shudu[][]){	//初始化阵
+	public void initCube(Grid shudu[][]){	//初始化阵
 		for(int i=0;i<shudu.length;i++){
 			for(int j=0;j<shudu[i].length;j++){
-				shudu[i][j].zhen=i/3*3+j/3+1;
+				shudu[i][j].cube=i/3*3+j/3+1;
 			}
 		}
 	}
@@ -95,13 +95,13 @@ public class sudoku {
 	    temp[i]=0;
 	}
 	
-	public void inputAll(Grid a[][])//手动录入81个数字
+	public void inputAll(Grid shudu[][])//手动录入81个数字
 	{
 	    for(int b=0;b<9;b++)
 	    {
 	        for(int v=0;v<9;v++)
 	        {
-	            a[b][v].num=sc.nextInt();
+				shudu[b][v].num=sc.nextInt();
 	        }
 	    }
 	}
@@ -123,7 +123,7 @@ public class sudoku {
 			for(int j=0;j<9;j++){
 				temp[i][j]=new Grid();
 				temp[i][j].num=a[i][j].num;
-				temp[i][j].zhen=a[i][j].zhen;
+				temp[i][j].cube=a[i][j].cube;
 				temp[i][j].row=a[i][j].row;
 				temp[i][j].line=a[i][j].line;
 				temp[i][j].beixuan=new int[9];
@@ -217,7 +217,7 @@ public class sudoku {
 	        }
 	}
 	
-	public void fill_duobeixuan_zhen(Grid a[][])
+	public void fill_duobeixuan_Cube(Grid a[][])
 	{
 	        for(int i=0;i<9;i++)
 	        {
@@ -231,7 +231,7 @@ public class sudoku {
 	                {
 	                    for(int v=0;v<9;v++)
 	                    {
-	                        if(a[b][v].zhen==a[i][j].zhen&&(b!=i||v!=j))
+	                        if(a[b][v].cube==a[i][j].cube&&(b!=i||v!=j))
 	                        {
 	                            for(int q=0;q<9;q++)
 	                            {
@@ -351,7 +351,7 @@ public class sudoku {
 	    update_beixuan(a);
 	    reset_temp();
 	    update_beixuan(a);
-	    fill_duobeixuan_zhen(a);
+	    fill_duobeixuan_Cube(a);
 	    update_beixuan(a);
 	    for(int q=0;q<80;q++)
 	    {
@@ -446,9 +446,9 @@ public class sudoku {
 				}
 				for(int b=0;b<9;b++){
 					for(int v=0;v<9;v++){
-						if(a[i][j]!=a[b][v] && a[i][j].zhen==a[b][v].zhen){//这里是地址不等
+						if(a[i][j]!=a[b][v] && a[i][j].cube==a[b][v].cube){//这里是地址不等
 							if(a[i][j].num==a[b][v].num && a[i][j].num!=0){
-								System.out.println("r:"+(i+1)+" l:"+(j+1)+"  and  r:"+(b+1)+" l:"+(v+1)+"   zhen conflict");
+								System.out.println("r:"+(i+1)+" l:"+(j+1)+"  and  r:"+(b+1)+" l:"+(v+1)+"   cube conflict");
 								return false;
 							}
 						}
@@ -463,13 +463,13 @@ public class sudoku {
 	
 	public static void main(String args[]) throws IOException{
 		Grid shudu[][]=new Grid [9][9];
-		sudoku s1=new sudoku();
+		Sudoku s1=new Sudoku();
 		for(int i=0;i<9;i++){
 			for(int j=0;j<9;j++){
 				shudu[i][j]=new Grid();
 			}
 		}
-		s1.initZhen(shudu);//分阵
+		s1.initCube(shudu);//分阵
 
 		File puzzle=new File(questionPath);
 		Reader reader=new FileReader(puzzle);
