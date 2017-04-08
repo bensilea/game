@@ -7,7 +7,7 @@ public class Grid {
 	
 	public int num;
 	public int beixuan[];
-	public int zhen;
+	public int cube;
 	public int row;
 	public int line;
 	Grid(){//初始化
@@ -15,7 +15,7 @@ public class Grid {
 		for(int i=0;i<9;i++){
 			beixuan[i]=i+1;
 		}
-		this.zhen=-1;
+		this.cube=-1;
 		this.num=0;
 		this.row=0;
 		this.line=0;
@@ -33,10 +33,10 @@ public class Grid {
 	public void setBeixuan(int beixuan[]){
 		this.beixuan=beixuan;
 	}
-	public int getZhen(){
-		return this.zhen;
+	public int getCube(){
+		return this.cube;
 	}
-	public void setZhen(int zhen){
-		this.zhen=zhen;
+	public void setCube(int zhen){
+		this.cube=zhen;
 	}
 }
