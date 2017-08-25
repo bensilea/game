@@ -51,7 +51,7 @@ public class Sudoku {
 			System.out.println();
 		}
 	}
-	public void initCube(Grid shudu[][]){	//初始化阵
+	public void initCube(Grid shudu[][]){	//初始化阵（分阵）
 		for(int i=0;i<shudu.length;i++){
 			for(int j=0;j<shudu[i].length;j++){
 				shudu[i][j].cube=i/3*3+j/3+1;
@@ -117,7 +117,7 @@ public class Sudoku {
 		return true;
 	}
 	
-	public Grid[][] deepCopyGrid(Grid[][] a){//deep copy 深复制
+	public Grid[][] deepCopyGrid(Grid[][] a){//deep copy 深复制整个盘格
 		Grid[][] temp=new Grid[9][9];
 		for(int i=0;i<9;i++){
 			for(int j=0;j<9;j++){
@@ -255,11 +255,8 @@ public class Sudoku {
 	public void input(Grid a[][]){	//传递的是数组地址的引用，是吧？
 		int b=0;
 		int v=0;
-		System.out.println("绗嚑琛�");
 		b=sc.nextInt();
-		System.out.println("绗嚑鍒�");
 		v=sc.nextInt();
-		System.out.println("鏄嚑?");
 		a[b-1][v-1].num=sc.nextInt();
 	}
 	
@@ -335,7 +332,7 @@ public class Sudoku {
 	    }
 	}
 	
-	void function1(Grid a[][])
+	void function1(Grid a[][])//执行
 	{
 	    update_beixuan(a);
 	    for(int q=0;q<80;q++)
@@ -482,7 +479,7 @@ public class Sudoku {
 				}
 			}
 		}
-		
+
 	    s1.displayAll(shudu);
 	    System.out.println();
 	    s1.function1(shudu);
@@ -492,5 +489,14 @@ public class Sudoku {
 //	    s1.displayAll(shudu);
 	    reader.close();
 	}
+	
+//	public static void main(String args[]){
+//		Sudoku s=new Sudoku();
+//		int a[]={1,2,3,4,5,6,8,7,9};
+//		for(int i=0;i<9;i++){
+//			System.out.println(s.fanzhen(a)[i]);
+//			
+//		}
+//	}
 
 }

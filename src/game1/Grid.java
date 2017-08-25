@@ -36,7 +36,7 @@ public class Grid {
 	public int getCube(){
 		return this.cube;
 	}
-	public void setCube(int zhen){
-		this.cube=zhen;
+	public void setCube(int cube){
+		this.cube=cube;
 	}
 }
